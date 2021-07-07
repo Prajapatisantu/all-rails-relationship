@@ -5,14 +5,17 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    
+    @employee.comments.build
+
   end
   
   def create
-    @employee = Employee.new(employee_params)
+    @employee = Employee.create(employee_params)
+   
+
     if @employee.save
-      flash[:notice] = "Your employee created successfully"
-      redirect_to employees_path
+       flash[:notice] = "Your employee created successfully"
+       redirect_to employees_path
     end 
   end
 
@@ -46,7 +49,7 @@ class EmployeesController < ApplicationController
 
   private
   def employee_params
-    params.require(:employee).permit(:name,:skill,:company_id, project_ids: [])
+    params.require(:employee).permit(:name,:skill,:company_id, project_ids: [],comments_attributes: [:body])
   end
   
 end

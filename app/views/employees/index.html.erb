@@ -6,7 +6,8 @@
 <% end %> &nbsp;<%= link_to 'New Employee' ,new_employee_path,class:'btn
 btn-dark' %> &nbsp; &nbsp; <%= link_to 'New Project', new_project_path,
 class:'btn btn-dark' %> &nbsp; &nbsp; <%= link_to 'New Company',
-new_company_path, class:'btn btn-dark' %>
+new_company_path, class:'btn btn-dark' %> &nbsp; &nbsp; <%= link_to 'Project
+List', projects_path, class:'btn btn-dark' %>
 
 <table class="table">
   <thead class="thead-light">
@@ -18,10 +19,12 @@ new_company_path, class:'btn btn-dark' %>
       <th scope="col">Action 1</th>
       <th scope="col">Action 2</th>
       <th scope="col">Action 3</th>
+      <th scope="col">Suggestion</th>
+      <th scope="col">Added suggestion</th>
     </tr>
   </thead>
   <tbody>
-    <% @employees.each do |e| %>
+    <% cache(@employees) do %> <% @employees.each do |e| %>
     <tr>
       <td><%= e.id %></td>
       <td><%= e.name %></td>
@@ -36,8 +39,16 @@ new_company_path, class:'btn btn-dark' %>
         <%= link_to 'Destroy' ,employee_path(e),class:'nav-link active',method:
         :delete, data: {confirm: "Are you Sure"} %>
       </td>
+
+      <td>
+        <%= link_to 'Add Comment', new_employee_comment_path(e),class:'nav-link
+        active' %>
+      </td>
+      <% cache(@employees) do %> <% e.comments.each do |c| %>
+      <td><%= c.body %></td>
+      <% end %> <% end %>
     </tr>
-    <% end %>
+    <% end %> <% end %>
   </tbody>
 </table>
 <br />

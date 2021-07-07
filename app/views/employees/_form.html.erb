@@ -21,10 +21,19 @@
 
   <%= form.label :projects, class: 'form-label' %><br />
   <div class="field">
-    <%= collection_check_boxes(:employee, :project_ids, Project.all,:id,:name) %>
+    <%= collection_check_boxes(:employee, :project_ids, Project.all,:id,:name)
+    %>
   </div>
 
   <br />
+  <%= form.fields_for :comments do |comm| %>
+  <div class="field">
+    <%= comm.label :body, "Comment" %><br />
+    <%= comm.text_area :body, class:'form-control', placeholder: 'Place Comment'
+    %>
+  </div>
+  <br />
+  <% end %>
 
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />

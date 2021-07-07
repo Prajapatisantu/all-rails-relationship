@@ -20,6 +20,14 @@
   </div>
 
   <br />
+  <%= form.fields_for :comments do |comm| %>
+  <div class="field">
+    <%= comm.label:body,"Comment",class: 'form-label' %><br />
+    <%= comm.text_area:body,class: 'form-control',placeholder: 'Place Comment'
+    %>
+  </div>
+  <br />
+  <% end %>
 
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />

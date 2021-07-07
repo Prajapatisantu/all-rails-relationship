@@ -12,4 +12,5 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-console.log("hello javascript");
+// console.log(" hii javascript");
+// $("#comment").html("<%= render :partial => 'form' %>");

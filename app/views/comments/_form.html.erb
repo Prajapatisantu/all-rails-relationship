@@ -1,0 +1,11 @@
+<div class="container">
+  <%= form_for [@commentable, @comment] do |comm| %>
+  <div class="field">
+    <%= comm.label:body,"Comment",class: 'form-label' %><br />
+    <%= comm.text_area:body, class: 'form-control',placeholder: 'Place Comment'
+    %>
+  </div>
+  <br />
+  <div><%= comm.submit "Add Comment", class:'btn btn-primary btn-sm' %></div>
+  <% end %>
+</div>

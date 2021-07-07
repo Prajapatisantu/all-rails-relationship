@@ -12,8 +12,6 @@ console.log("this is available for specfic page");
 //     hello("javascript");
 //   });
 // });
-butt = document.getElementById("has");
-butt.addEventListener("click", (event) => {
-  console.log(event);
-  alert("javascript");
-});
+// $("#commentform").html('<%= j render "comments/form" %>');
+let aa = document.getElementById("hhh").innerHTML;
+console.log(aa);

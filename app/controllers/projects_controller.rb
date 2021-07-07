@@ -1,18 +1,20 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    
   end
 
   def new
     @project = Project.new
-    
+    @project.comments.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = Project.create(project_params)
+
     if @project.save
       flash[:notice] = "Your project created successfully"
-      redirect_to employees_path
+      redirect_to projects_path
     end 
   end
 
@@ -35,6 +37,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name,:desc,employee_ids: [])
+    params.require(:project).permit(:name,:desc,employee_ids: [],comments_attributes: [:body])
   end
 end

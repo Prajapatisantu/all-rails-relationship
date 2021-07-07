@@ -1,2 +1,20 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<br /><% @projects.each do |p| %>
+<div class="container">
+  <div class="card border-secondary mb-3">
+    <div class="card-header"><%= p.id %></div>
+    <div class="card-body text-secondary">
+      <h5 class="card-title"><strong>Name:</strong><%= p.name %></h5>
+      <p class="card-text"><strong>Description:</strong><%= p.desc %></p>
+      <% p.comments.each do |c| %>
+      <p>
+        <strong>Comments:</strong>
+        <%= c.body %>
+      </p>
+      <% end %>
+      <%#= render 'comments/form' %>
+      <%= link_to 'Add Comment', new_project_comment_path(p), class:'btn
+      btn-primary btn-sm' %>
+    </div>
+  </div>
+</div>
+<% end %>
