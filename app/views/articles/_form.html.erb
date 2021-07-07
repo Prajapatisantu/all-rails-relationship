@@ -1,6 +1,5 @@
 <div class="container">
   <%= form_with(model: @article, local: true) do |form| %>
-
   <div>
     <%= form.label :Title, class: 'form-label' %><br />
     <%= form.text_field :title, class:'form-control', placeholder: 'Enter Title'

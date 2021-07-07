@@ -1,6 +1,5 @@
 <div class="container">
   <%= form_with(model:@project, local: true) do |form| %>
-
   <div>
     <%= form.label :Name, class: 'form-label' %><br />
     <%= form.text_field :name, class:'form-control', placeholder: 'Project Name'
@@ -18,7 +17,6 @@
     <%= collection_check_boxes(:project, :employee_ids, Employee.all,:id,:name)
     %>
   </div>
-
   <br />
   <%= form.fields_for :comments do |comm| %>
   <div class="field">
@@ -28,10 +26,7 @@
   </div>
   <br />
   <% end %>
-
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />
   <% end %>
 </div>
-<!-- employee_id, options_for_select(Employee.all.collect{|emp|
-    [emp.name]}), class:'form-control' %> -->

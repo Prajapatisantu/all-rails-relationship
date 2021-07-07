@@ -12,5 +12,5 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-// console.log(" hii javascript");
-// $("#comment").html("<%= render :partial => 'form' %>");
+import "bootstrap";
+import "../stylesheets/application";

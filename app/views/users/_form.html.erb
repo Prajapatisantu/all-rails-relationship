@@ -1,13 +1,11 @@
 <div class="container">
   <%= form_with(model:@user, local: true) do |form| %>
-
   <div>
     <%= form.label :Name, class: 'form-label' %><br />
     <%= form.text_field :name, class:'form-control', placeholder: 'Enter Name'
     %>
   </div>
   <br />
-
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />
   <% end %>

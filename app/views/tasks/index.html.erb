@@ -1,0 +1,18 @@
+<br />
+<% @tasks.each do |task| %>
+<br />
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Name:<%= task.name %></h5>
+      <strong class="card-text">Description:<%= task.desc %></strong>
+      <p class="card-text">Employee Name: <%= task.employee.name %></p>
+      <%= link_to 'Employee details', employees_path, class:'btn btn-success
+      btn-sm' %>
+      <p class="card-text">Project Name: <%= task.project.name %></p>
+      <%= link_to 'Project details', projects_path, class:'btn btn-success
+      btn-sm' %>
+    </div>
+  </div>
+</div>
+<% end %>

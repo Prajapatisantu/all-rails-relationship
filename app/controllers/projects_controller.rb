@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all
-    
   end
 
   def new
@@ -20,7 +19,6 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    
   end
 
   def update
@@ -32,8 +30,7 @@ class ProjectsController < ApplicationController
       else
         render :edit
       end
-    end
-
+  end
 
   private
   def project_params

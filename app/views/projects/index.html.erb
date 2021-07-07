@@ -1,7 +1,12 @@
-<br /><% @projects.each do |p| %>
+<br />
+<div class="p-3 mb-2 bg-primary text-black container rounded-3">
+  <h2><center>Project Details</center></h2>
+</div>
+<br />
+<% cache(@projects) do %> <% @projects.each do |p| %>
 <div class="container">
   <div class="card border-secondary mb-3">
-    <div class="card-header"><%= p.id %></div>
+    <div class="card-header">No:<%= p.id %></div>
     <div class="card-body text-secondary">
       <h5 class="card-title"><strong>Name:</strong><%= p.name %></h5>
       <p class="card-text"><strong>Description:</strong><%= p.desc %></p>
@@ -10,11 +15,20 @@
         <strong>Comments:</strong>
         <%= c.body %>
       </p>
-      <% end %>
-      <%#= render 'comments/form' %>
-      <%= link_to 'Add Comment', new_project_comment_path(p), class:'btn
-      btn-primary btn-sm' %>
+      <% end %> <% p.tasks.each do |task| %>
+      <p>
+        <strong>Tasks:</strong>
+        <%= task.name %>
+      </p>
+      <% end %> <% p.employees.each do |emp| %>
+      <p>
+        <strong>employee<%= emp.id %>:</strong>
+        <%= emp.name %>
+      </p>
+      <% end %> <%= link_to 'Add Comment', new_project_comment_path(p),
+      class:'btn btn-primary btn-sm' %> &nbsp;<%= link_to 'Task details',
+      tasks_index_path(p), class:'btn btn-success btn-sm' %>
     </div>
   </div>
 </div>
-<% end %>
+<% end %> <% end %>

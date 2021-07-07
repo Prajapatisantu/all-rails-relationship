@@ -11,12 +11,10 @@ class EmployeesController < ApplicationController
   
   def create
     @employee = Employee.create(employee_params)
-   
-
-    if @employee.save
+     if @employee.save
        flash[:notice] = "Your employee created successfully"
        redirect_to employees_path
-    end 
+     end 
   end
 
   def edit
@@ -48,8 +46,8 @@ class EmployeesController < ApplicationController
 
 
   private
-  def employee_params
+   def employee_params
     params.require(:employee).permit(:name,:skill,:company_id, project_ids: [],comments_attributes: [:body])
-  end
+   end
   
 end

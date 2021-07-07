@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  
   def index
     @articles = Article.all
   end
@@ -17,7 +18,6 @@ class ArticlesController < ApplicationController
   def show
     @data = Article.find(params[:id])
   end
-
 
   private
   def connect
