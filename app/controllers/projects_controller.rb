@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
       end
   end
 
+  
   private
   def project_params
     params.require(:project).permit(:name,:desc,employee_ids: [],comments_attributes: [:body])

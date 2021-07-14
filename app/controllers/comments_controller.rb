@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
    before_action :set_commentable
   
   def index
-   @comments = @commentable.comments
+   @comments = @commentable.comments.order("created at desc")
   end
 
   def new
